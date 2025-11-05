@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Inovação Digital | Conecte-se Conosco</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        /* [MANTENHA TODOS OS ESTILOS ANTERIORES...] */
+        
+        /* ADICIONE ESTES NOVOS ESTILOS PARA A LOGO */
+        .logo-image {
+            height: 40px; /* Ajuste conforme sua logo */
+            width: auto;
+            transition: var(--transition);
+        }
+        
+        .footer-logo img {
+            height: 35px;
+            width: auto;
+        }
+        
+        /* Se sua logo for clara e precisar de versão escura */
+        .logo-image.dark-logo {
+            filter: brightness(0) invert(1);
+        }
+        
+        /* Responsividade para logo */
+        @media (max-width: 768px) {
+            .logo-image {
+                height: 35px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container">
+            <div class="header-content">
+                <!-- SUA LOGO AQUI -->
+                <div class="logo">
+                    <img src="SUA-LOGO-AQUI.png" alt="Nome da Sua Empresa" class="logo-image">
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- [RESTANTE DO CÓDIGO IGUAL...] -->
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <!-- LOGO NO FOOTER TAMBÉM -->
+            <div class="footer-logo">
+                <img src="SUA-LOGO-AQUI.png" alt="Nome da Sua Empresa" class="logo-image">
+            </div>
+            <p class="copyright">© 2023 Sua Empresa. Todos os direitos reservados.</p>
+        </div>
+    </footer>
+</body>
+</html>
