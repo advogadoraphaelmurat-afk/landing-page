@@ -42,7 +42,7 @@
 
         /* Header */
         header {
-            padding: 30px 0;
+            padding: 20px 0;
             position: fixed;
             width: 100%;
             top: 0;
@@ -59,13 +59,14 @@
             align-items: center;
         }
 
-        .logo {
-            font-size: 1.8rem;
-            font-weight: 700;
-            background: linear-gradient(90deg, var(--accent), var(--primary));
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            letter-spacing: -0.5px;
+        .logo-image {
+            height: 50px;
+            width: auto;
+            transition: var(--transition);
+        }
+
+        .logo-image:hover {
+            transform: scale(1.05);
         }
 
         /* Hero Section */
@@ -76,6 +77,10 @@
             position: relative;
             padding-top: 100px;
             overflow: hidden;
+            background: linear-gradient(135deg, rgba(18, 18, 18, 0.9), rgba(18, 18, 18, 0.7)), url('assets/background.jpg');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
         }
 
         .hero-content {
@@ -198,6 +203,7 @@
             border: 1px solid rgba(255, 255, 255, 0.05);
             backdrop-filter: blur(10px);
             -webkit-backdrop-filter: blur(10px);
+            text-align: center;
         }
 
         .feature-card:hover {
@@ -207,34 +213,43 @@
         }
 
         .feature-icon {
-            width: 70px;
-            height: 70px;
+            width: 80px;
+            height: 80px;
+            margin: 0 auto 25px;
             background: linear-gradient(135deg, var(--primary), var(--accent));
-            border-radius: 18px;
+            border-radius: 20px;
             display: flex;
             align-items: center;
             justify-content: center;
-            margin-bottom: 25px;
+            transition: var(--transition);
         }
 
-        .feature-icon i {
-            font-size: 1.8rem;
-            color: white;
+        .feature-card:hover .feature-icon {
+            transform: scale(1.1) rotate(5deg);
+        }
+
+        .feature-icon img {
+            width: 40px;
+            height: 40px;
+            filter: brightness(0) invert(1);
         }
 
         .feature-card h3 {
             font-size: 1.5rem;
             margin-bottom: 15px;
+            color: var(--light);
         }
 
         .feature-card p {
             color: var(--gray);
+            line-height: 1.6;
         }
 
         /* Seção de contato */
         .contact {
             padding: 120px 0;
             text-align: center;
+            background: rgba(255, 255, 255, 0.02);
         }
 
         .contact p {
@@ -251,15 +266,16 @@
             padding: 60px 0 30px;
             border-top: 1px solid rgba(255, 255, 255, 0.1);
             text-align: center;
+            background: rgba(18, 18, 18, 0.95);
         }
 
         .footer-logo {
-            font-size: 1.5rem;
-            font-weight: 700;
             margin-bottom: 20px;
-            background: linear-gradient(90deg, var(--accent), var(--primary));
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
+        }
+
+        .footer-logo img {
+            height: 40px;
+            width: auto;
         }
 
         .copyright {
@@ -277,6 +293,10 @@
             .floating-shapes {
                 width: 100%;
                 opacity: 0.3;
+            }
+            
+            .hero {
+                background-attachment: scroll;
             }
         }
 
@@ -296,6 +316,10 @@
             .feature-card {
                 padding: 30px 20px;
             }
+            
+            .logo-image {
+                height: 40px;
+            }
         }
 
         @media (max-width: 576px) {
@@ -310,6 +334,10 @@
             
             .features-grid {
                 grid-template-columns: 1fr;
+            }
+            
+            .logo-image {
+                height: 35px;
             }
         }
 
@@ -333,7 +361,9 @@
     <header>
         <div class="container">
             <div class="header-content">
-                <div class="logo">EUROPA REGULARIZAÇÕES</div>
+                <div class="logo">
+                    <img src="assets/logo.png" alt="EUROPA REGULARIZAÇÕES" class="logo-image">
+                </div>
             </div>
         </div>
     </header>
@@ -366,24 +396,24 @@
             <div class="features-grid">
                 <div class="feature-card">
                     <div class="feature-icon">
-                        <i class="fas fa-home"></i>
+                        <img src="assets/icon.png" alt="Regularização Completa">
                     </div>
                     <h3>Regularização Completa</h3>
-                    <p>Cuide de toda a documentação do seu imóvel: matrícula, escritura, ITBI e registro no cartório.</p>
+                    <p>Cuide de toda a documentação do seu imóvel: matrícula, escritura, ITBI e registro no cartório com nossa assessoria especializada.</p>
                 </div>
                 <div class="feature-card">
                     <div class="feature-icon">
-                        <i class="fas fa-shield-alt"></i>
+                        <i class="fas fa-shield-alt" style="font-size: 2rem; color: white;"></i>
                     </div>
                     <h3>Segurança Jurídica</h3>
-                    <p>Seu patrimônio protegido com a assessoria de especialistas em direito imobiliário.</p>
+                    <p>Seu patrimônio protegido com a assessoria de especialistas em direito imobiliário. Tranquilidade para você e sua família.</p>
                 </div>
                 <div class="feature-card">
                     <div class="feature-icon">
-                        <i class="fas fa-bolt"></i>
+                        <i class="fas fa-bolt" style="font-size: 2rem; color: white;"></i>
                     </div>
                     <h3>Processo Ágil</h3>
-                    <p>Tecnologia e experiência para agilizar sua regularização sem complicações.</p>
+                    <p>Tecnologia e experiência para agilizar sua regularização sem complicações. Menos burocracia, mais resultados.</p>
                 </div>
             </div>
         </div>
@@ -393,7 +423,7 @@
     <section class="contact">
         <div class="container">
             <h2 class="section-title">Pronto para Regularizar?</h2>
-            <p>Entre em contato conosco agora mesmo através do WhatsApp e garanta a segurança do seu patrimônio.</p>
+            <p>Entre em contato conosco agora mesmo através do WhatsApp e garanta a segurança do seu patrimônio. Nossos especialistas estão prontos para ajudar!</p>
             <a href="https://wa.me/5521968815872?text=Olá! Gostaria de saber mais sobre regularização de imóveis." class="cta-button" target="_blank">
                 <i class="fab fa-whatsapp"></i>
                 Falar com Especialista
@@ -404,7 +434,9 @@
     <!-- Footer -->
     <footer>
         <div class="container">
-            <div class="footer-logo">EUROPA REGULARIZAÇÕES</div>
+            <div class="footer-logo">
+                <img src="assets/logo.png" alt="EUROPA REGULARIZAÇÕES">
+            </div>
             <p class="copyright">© 2025 EUROPA REGULARIZAÇÕES. Todos os direitos reservados.</p>
         </div>
     </footer>
@@ -437,7 +469,15 @@
                     shape.style.transform = `translateY(${rate}px)`;
                 });
             });
+
+            // Preload de imagens para melhor performance
+            const images = ['assets/logo.png', 'assets/background.jpg', 'assets/icon.png'];
+            images.forEach(src => {
+                const img = new Image();
+                img.src = src;
+            });
         });
     </script>
 </body>
 </html>
+
