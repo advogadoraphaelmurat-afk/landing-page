@@ -42,7 +42,7 @@
 
         /* Header */
         header {
-            padding: 20px 0;
+            padding: 15px 0;
             position: fixed;
             width: 100%;
             top: 0;
@@ -60,7 +60,7 @@
         }
 
         .logo-image {
-            height: 60px; /* AUMENTEI o tamanho */
+            height: 80px; /* AUMENTEI MUITO o tamanho */
             width: auto;
             transition: var(--transition);
         }
@@ -80,7 +80,7 @@
         }
 
         .hero-with-bg {
-            background: linear-gradient(135deg, rgba(18, 18, 18, 0.85), rgba(18, 18, 18, 0.75)), url('assets/background.jpg');
+            background: linear-gradient(135deg, rgba(18, 18, 18, 0.85), rgba(18, 18, 18, 0.75)), url('assets/backgound.jpg');
             background-size: cover;
             background-position: center;
             background-repeat: no-repeat;
@@ -216,8 +216,8 @@
         }
 
         .feature-icon {
-            width: 80px;
-            height: 80px;
+            width: 90px;
+            height: 90px;
             margin: 0 auto 25px;
             background: linear-gradient(135deg, var(--primary), var(--accent));
             border-radius: 20px;
@@ -232,9 +232,15 @@
         }
 
         .feature-icon img {
-            width: 45px; /* AUMENTEI o ícone */
-            height: 45px;
-            filter: brightness(0) invert(1);
+            width: 50px;
+            height: 50px;
+        }
+
+        /* Ícone .ico precisa de tratamento especial */
+        .ico-icon {
+            width: 40px;
+            height: 40px;
+            object-fit: contain;
         }
 
         .feature-card h3 {
@@ -277,7 +283,7 @@
         }
 
         .footer-logo img {
-            height: 50px; /* AUMENTEI no footer também */
+            height: 70px; /* AUMENTEI no footer também */
             width: auto;
         }
 
@@ -285,17 +291,6 @@
             color: var(--gray);
             font-size: 0.9rem;
             margin-top: 30px;
-        }
-
-        /* Fallback para imagens que não carregam */
-        .image-fallback {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            background: linear-gradient(135deg, var(--primary), var(--accent));
-            color: white;
-            font-weight: bold;
-            border-radius: 10px;
         }
 
         /* Responsividade */
@@ -328,7 +323,7 @@
             }
             
             .logo-image {
-                height: 50px;
+                height: 60px;
             }
         }
 
@@ -347,7 +342,7 @@
             }
             
             .logo-image {
-                height: 45px;
+                height: 50px;
             }
         }
 
@@ -372,8 +367,7 @@
         <div class="container">
             <div class="header-content">
                 <div class="logo">
-                    <img src="assets/logo.png" alt="EUROPA REGULARIZAÇÕES" class="logo-image" onerror="this.style.display='none'; this.nextElementSibling.style.display='block'">
-                    <div class="logo-fallback" style="display: none; font-size: 1.8rem; font-weight: 700; background: linear-gradient(90deg, var(--accent), var(--primary)); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">EUROPA</div>
+                    <img src="assets/logo.png" alt="EUROPA REGULARIZAÇÕES" class="logo-image">
                 </div>
             </div>
         </div>
@@ -407,21 +401,21 @@
             <div class="features-grid">
                 <div class="feature-card">
                     <div class="feature-icon">
-                        <img src="assets/icon.png" alt="Regularização Completa" onerror="this.style.display='none'; this.parentElement.innerHTML='<i class=\'fas fa-home\' style=\'font-size: 2rem; color: white;\'></i>'">
+                        <img src="assets/icon.ico" alt="Regularização Completa" class="ico-icon">
                     </div>
                     <h3>Regularização Completa</h3>
                     <p>Cuide de toda a documentação do seu imóvel: matrícula, escritura, ITBI e registro no cartório com nossa assessoria especializada.</p>
                 </div>
                 <div class="feature-card">
                     <div class="feature-icon">
-                        <i class="fas fa-shield-alt" style="font-size: 2rem; color: white;"></i>
+                        <i class="fas fa-shield-alt" style="font-size: 2.5rem; color: white;"></i>
                     </div>
                     <h3>Segurança Jurídica</h3>
                     <p>Seu patrimônio protegido com a assessoria de especialistas em direito imobiliário. Tranquilidade para você e sua família.</p>
                 </div>
                 <div class="feature-card">
                     <div class="feature-icon">
-                        <i class="fas fa-bolt" style="font-size: 2rem; color: white;"></i>
+                        <i class="fas fa-bolt" style="font-size: 2.5rem; color: white;"></i>
                     </div>
                     <h3>Processo Ágil</h3>
                     <p>Tecnologia e experiência para agilizar sua regularização sem complicações. Menos burocracia, mais resultados.</p>
@@ -446,8 +440,7 @@
     <footer>
         <div class="container">
             <div class="footer-logo">
-                <img src="assets/logo.png" alt="EUROPA REGULARIZAÇÕES" onerror="this.style.display='none'; this.nextElementSibling.style.display='block'">
-                <div class="logo-fallback" style="display: none; font-size: 1.5rem; font-weight: 700; background: linear-gradient(90deg, var(--accent), var(--primary)); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">EUROPA REGULARIZAÇÕES</div>
+                <img src="assets/logo.png" alt="EUROPA REGULARIZAÇÕES">
             </div>
             <p class="copyright">© 2025 EUROPA REGULARIZAÇÕES. Todos os direitos reservados.</p>
         </div>
@@ -482,21 +475,27 @@
                 });
             });
 
-            // Verifica se as imagens carregaram
-            setTimeout(function() {
-                const bg = document.querySelector('.hero-with-bg');
-                const computedStyle = window.getComputedStyle(bg);
-                const bgImage = computedStyle.backgroundImage;
-                
-                if (bgImage === 'none' || bgImage === '') {
-                    document.querySelector('.hero-with-bg').style.background = 'linear-gradient(135deg, var(--secondary), var(--dark))';
-                }
-            }, 1000);
+            // Verifica se o background carregou
+            const bgImage = new Image();
+            bgImage.src = 'assets/backgound.jpg';
+            bgImage.onload = function() {
+                console.log('Background carregado com sucesso!');
+            };
+            bgImage.onerror = function() {
+                console.log('Background não carregou, usando fallback');
+                document.querySelector('.hero-with-bg').style.background = 'linear-gradient(135deg, #2c1810, #121212)';
+            };
+
+            // Verifica se o ícone carregou
+            const iconImage = new Image();
+            iconImage.src = 'assets/icon.ico';
+            iconImage.onerror = function() {
+                console.log('Ícone não carregou, usando fallback');
+                document.querySelector('.ico-icon').style.display = 'none';
+                const featureIcon = document.querySelector('.feature-icon:first-child');
+                featureIcon.innerHTML = '<i class="fas fa-home" style="font-size: 2.5rem; color: white;"></i>';
+            };
         });
     </script>
 </body>
 </html>
-</body>
-</html>
-
-
